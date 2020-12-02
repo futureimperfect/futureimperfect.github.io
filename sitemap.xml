@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://everythingisgray.com/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2020/11/03/migrating-from-octopress-to-hugo/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2018/12/01/get-mac-serial-number-programmatically-with-cgo/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2015/10/26/trumpblockr/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2014/10/07/clean-up-whitespace-with-find-and-sed/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2014/07/21/autopkgr-a-front-end-for-autopkg/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2014/06/01/complex-ldap-queries-with-ldapsearch-and-python-ldap/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2014/03/09/python-one-liner-for-determining-java-vendor/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/os-x/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2014/01/02/querying-ad-group-membership-status-with-ldapsearch/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/technology/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/unix/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/casper/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/ec2/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2013/11/17/ghost-in-the-cloud-deploying-the-jss-on-amazon-ec2/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/talks/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2013/11/03/option-left-right-arrow-navigation-in-iterm2/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2013/09/10/speaking-at-the-2013-jamf-nation-user-conference/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/art/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/comics/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/design/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2013/08/24/guest-appearance-on-5by5s-systematic/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/podcasting/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2013/08/10/determining-guest-login-status/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2013/06/16/curl-speed-test/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/octopress/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2013/06/15/on-migrating-from-wordpress-to-octopress/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/web-development/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/wordpress/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2010/08/19/how-i-use-automator-to-post-images-to-tumblr/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/mysql/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2010/07/21/restore-mysql-database-from-ibdata-and-frm-files/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2010/04/16/in-store-signing-at-pages-bookstore/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2010/03/20/msu-comics-forum/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2010/02/16/configure-archive-utility-in-mac-os-x/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2010/02/01/10-inspiring-websites/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/web-design/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/12/16/webcomics/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/10/08/check-if-your-mac-is-64-bit/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/snow-leopard/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/09/04/life-on-mars/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/science/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/08/01/ideals-iphone-app/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/iphone/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/css/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/07/23/snow-stack-3d-css/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/cappuccino/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/07/21/cappuccino-web-framework/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/objective-j/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/sproutcore/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/html-5/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/w3c/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/web-standards/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/xhtml/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/07/02/xhtml-is-dead-but-dont-worry/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/07/01/flintcast-episode-2-now-on-itunes/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/06/21/logo-guessing-game/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/06/17/american-airlines-site-redesign/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/06/16/nextgen-cool-wordpress-plugin/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/06/11/flintcast-is-now-available-on-itunes/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/06/04/flintcast-episode-1-now-available/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/theme-development/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/05/22/version-0.5-of-simplixity-is-now-live/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/05/02/do-hosted-solutions-threaten-wordpress-and-other-blogging-platforms/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/04/30/jobtac-uses-simplixity-theme-for-their-wp-blog/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/04/22/i-shed-a-tear-for-quicksilver-today/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/launchbar/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/quicksilver/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/04/19/is-the-browser-the-new-wysiwyg/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/04/17/how-to-installing-freebsd-as-a-guest-os-in-parallels-4/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/04/17/loopthing-uses-simplixity-theme-for-their-blog/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/04/08/modification-of-simplixity-wordpress-theme/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/simplixity-wordpress-theme/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/03/31/wordpress-theme-simplixity-is-now-available-on-the-wordpress-theme-directory/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/03/29/wordpress-theme-simplixity-completed...-yeah-right/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/microsoft/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/vmware/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/windows/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/windows-7/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2009/02/08/windows-7-beta-vmware-fusion-2/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/2008/10/31/-hello-world-/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/tags/php/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/about/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/post/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/portfolio/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/projects/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/research/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://everythingisgray.com/talks/</loc>
+    <lastmod>2020-12-01T21:40:24-05:00</lastmod>
+  </url>
+  
+</urlset>

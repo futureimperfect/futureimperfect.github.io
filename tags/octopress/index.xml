@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Octopress on Everything is Gray</title>
+    <link>https://everythingisgray.com/tags/octopress/</link>
+    <description>Recent content in Octopress on Everything is Gray</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>James Barclay</copyright>
+    <lastBuildDate>Sat, 15 Jun 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://everythingisgray.com/tags/octopress/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On Migrating From WordPress to Octopress</title>
+      <link>https://everythingisgray.com/2013/06/15/on-migrating-from-wordpress-to-octopress/</link>
+      <pubDate>Sat, 15 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://everythingisgray.com/2013/06/15/on-migrating-from-wordpress-to-octopress/</guid>
+      <description>Having recently made the decision to migrate my blog from WordPress to Octopress I decided I would share my findings in hopes that someone else will benefit from them, and so I can refer back to this post should I need to do something similar in the future.
+The primary reason I decided to move to a statically generated site is because I found myself spending more time worrying about whether my site was running and was secure than I did writing.</description>
+    </item>
+    
+  </channel>
+</rss>

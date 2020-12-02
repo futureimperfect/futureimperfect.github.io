@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web Development on Everything is Gray</title>
+    <link>https://everythingisgray.com/tags/web-development/</link>
+    <description>Recent content in Web Development on Everything is Gray</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>James Barclay</copyright>
+    <lastBuildDate>Sat, 15 Jun 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://everythingisgray.com/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On Migrating From WordPress to Octopress</title>
+      <link>https://everythingisgray.com/2013/06/15/on-migrating-from-wordpress-to-octopress/</link>
+      <pubDate>Sat, 15 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://everythingisgray.com/2013/06/15/on-migrating-from-wordpress-to-octopress/</guid>
+      <description>Having recently made the decision to migrate my blog from WordPress to Octopress I decided I would share my findings in hopes that someone else will benefit from them, and so I can refer back to this post should I need to do something similar in the future.
+The primary reason I decided to move to a statically generated site is because I found myself spending more time worrying about whether my site was running and was secure than I did writing.</description>
+    </item>
+    
+    <item>
+      <title>Restore MySQL Database From ibdata and .frm Files</title>
+      <link>https://everythingisgray.com/2010/07/21/restore-mysql-database-from-ibdata-and-frm-files/</link>
+      <pubDate>Wed, 21 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://everythingisgray.com/2010/07/21/restore-mysql-database-from-ibdata-and-frm-files/</guid>
+      <description>Last week I was presented with a problem that involved restoring a MySQL database for a client using only the /data folder from an original MySQL installation. The solution turned out to be rather simple, but that didn&amp;rsquo;t stop me from racking my brain for a few hours. Thus, I thought I&amp;rsquo;d share my experience in hopes of helping others that may run into this.
+NOTE The MySQL database I was tasked with restoring was associated with a WordPress installation.</description>
+    </item>
+    
+    <item>
+      <title>10 Inspiring Websites</title>
+      <link>https://everythingisgray.com/2010/02/01/10-inspiring-websites/</link>
+      <pubDate>Mon, 01 Feb 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://everythingisgray.com/2010/02/01/10-inspiring-websites/</guid>
+      <description>Lately I&amp;rsquo;ve been spending quite a bit of time designing websites, whether it&amp;rsquo;s WordPress theme development or Joomla! template design. A huge part of this process, (for me), is finding inspiration. Below are 10 carefully crafted examples of good web design that I&amp;rsquo;ve been inspired by as of late.</description>
+    </item>
+    
+    <item>
+      <title>Snow Stack 3D CSS</title>
+      <link>https://everythingisgray.com/2009/07/23/snow-stack-3d-css/</link>
+      <pubDate>Thu, 23 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://everythingisgray.com/2009/07/23/snow-stack-3d-css/</guid>
+      <description>A gentleman by the name of Charles Ying of Satine.org has developed a new 3D CSS visual effects demonstration called Snow Stack, which runs entirely on JavaScript, native WebKit CSS extensions, and XHTML/HTML. If you&amp;rsquo;re familiar with Cover Flow/Core Animation on the Mac you&amp;rsquo;ll immediately recognize Snow Stack. In order to run the demo you&amp;rsquo;ll need either the Snow Leopard Beta + Safari or Leopard + the latest nightly build of WebKit.</description>
+    </item>
+    
+    <item>
+      <title>Cappuccino Web Framework</title>
+      <link>https://everythingisgray.com/2009/07/21/cappuccino-web-framework/</link>
+      <pubDate>Tue, 21 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://everythingisgray.com/2009/07/21/cappuccino-web-framework/</guid>
+      <description>So lately I&amp;rsquo;ve been playing around with the Cappuccino web framework and a nifty little programming language called Objective-J. The Cappuccino framework allows you to create desktop class applications for the browser, and gives you the ability to run these applications on the desktop, (similar to Adobe AIR). One of the many benefits of being able to create applications that run on the desktop is having the ability to run the application while offline.</description>
+    </item>
+    
+    <item>
+      <title>XHTML Is Dead, (but Don&#39;t Worry)</title>
+      <link>https://everythingisgray.com/2009/07/02/xhtml-is-dead-but-dont-worry/</link>
+      <pubDate>Thu, 02 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://everythingisgray.com/2009/07/02/xhtml-is-dead-but-dont-worry/</guid>
+      <description>TodayOn July 2, 2009, the W3C announced that the XHTML 2 working group will cease development by the end of 2009. Of course all this means is that more time, effort, and man power will be focused on the HTML 5 specification, which is going to drastically change the web, (just take a look at Google Wave). This also means that we won&amp;rsquo;t have any spec wars to deal with, which are almost as bad as format wars, (HD DVD vs.</description>
+    </item>
+    
+    <item>
+      <title>Version 0.5 of Simplixity Is Now Live</title>
+      <link>https://everythingisgray.com/2009/05/22/version-0.5-of-simplixity-is-now-live/</link>
+      <pubDate>Fri, 22 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://everythingisgray.com/2009/05/22/version-0.5-of-simplixity-is-now-live/</guid>
+      <description>Today I submitted an update to my WordPress theme Simplixity, which improves how images are handled in posts and fixes an issue that existed while no widgets were activated in the admin panel. You can view and download it here.
+I&amp;rsquo;ve already begun working on the next update, which should include an easily customizable client.css file, for making quick changes to the theme.</description>
+    </item>
+    
+    <item>
+      <title>Jobtac Uses &#34;Simplixity&#34; Theme for Their WP Blog</title>
+      <link>https://everythingisgray.com/2009/04/30/jobtac-uses-simplixity-theme-for-their-wp-blog/</link>
+      <pubDate>Thu, 30 Apr 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://everythingisgray.com/2009/04/30/jobtac-uses-simplixity-theme-for-their-wp-blog/</guid>
+      <description>It&amp;rsquo;s become rather amusing for me to find out just who is using my WordPress theme. Sometimes it&amp;rsquo;s not so flattering, other times it is. The other day I discovered that Jobtac, a job posting site for employers and job seekers alike, is using Simplixity for their blog. Thanks a lot, guys!</description>
+    </item>
+    
+    <item>
+      <title>Is the Browser the New WYSIWYG?</title>
+      <link>https://everythingisgray.com/2009/04/19/is-the-browser-the-new-wysiwyg/</link>
+      <pubDate>Sun, 19 Apr 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://everythingisgray.com/2009/04/19/is-the-browser-the-new-wysiwyg/</guid>
+      <description>I&amp;rsquo;ve been thinking a lot about this concept lately. Have we come to a point where the Dreamweaver style IDE, (integrated development environment), has become a thing of the past? Ninety percent of my formal training has been heavily dependent on this model, yet I can&amp;rsquo;t see any forward thinking web designer/developer continuing to rely on it. In many ways, the browser has become my WYSIWYG of choice. You can quickly see the effects of changes made to style sheets and you&amp;rsquo;re not confined to any one proprietary system.</description>
+    </item>
+    
+  </channel>
+</rss>
