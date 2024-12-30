@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Snow Leopard on Everything is Gray</title><link>https://everythingisgray.com/tags/snow-leopard/</link><description>Recent content in Snow Leopard on Everything is Gray</description><generator>Hugo</generator><language>en-us</language><copyright>James Barclay</copyright><lastBuildDate>Fri, 21 Aug 2020 01:52:41 -0400</lastBuildDate><atom:link href="https://everythingisgray.com/tags/snow-leopard/index.xml" rel="self" type="application/rss+xml"/><item><title>Check if Your Mac Is 64 Bit</title><link>https://everythingisgray.com/2009/10/08/check-if-your-mac-is-64-bit/</link><pubDate>Thu, 08 Oct 2009 00:00:00 +0000</pubDate><guid>https://everythingisgray.com/2009/10/08/check-if-your-mac-is-64-bit/</guid><description>&lt;p>Here&amp;rsquo;s an easy way to determine whether or not your Mac is 64 bit capable. Open Terminal.app, which is located in /Applications/Utilities and type in:&lt;/p>
+&lt;p>&lt;code>sysctl hw | grep 64bit&lt;/code>&lt;/p>
+&lt;p>If your machine is 64 bit capable, the result will be&lt;/p>
+&lt;p>&lt;code>hw.cpu64bit_capable: 1&lt;/code>&lt;/p>
+&lt;p>If your machine is not 64 bit capable, the result will be&lt;/p>
+&lt;p>&lt;code>hw.cpu64bit_capable: 0&lt;/code>&lt;/p>
+&lt;p>Tip source: &lt;a href="http://osxdaily.com/2009/09/23/check-if-your-mac-is-64-bit-compatible-via-command-line/">OSXDaily.com&lt;/a>&lt;/p></description></item></channel></rss>

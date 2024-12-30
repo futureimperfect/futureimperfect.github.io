@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Go on Everything is Gray</title><link>https://everythingisgray.com/categories/go/</link><description>Recent content in Go on Everything is Gray</description><generator>Hugo</generator><language>en-us</language><copyright>James Barclay</copyright><lastBuildDate>Mon, 19 Oct 2020 00:54:34 -0400</lastBuildDate><atom:link href="https://everythingisgray.com/categories/go/index.xml" rel="self" type="application/rss+xml"/><item><title>Get Mac Serial Number Programmatically With Cgo</title><link>https://everythingisgray.com/2018/12/01/get-mac-serial-number-programmatically-with-cgo/</link><pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate><guid>https://everythingisgray.com/2018/12/01/get-mac-serial-number-programmatically-with-cgo/</guid><description>&lt;p>I recently had the occassion to obtain the serial number from a Mac within a Go program. Rather than shelling out to &lt;code>system_profiler&lt;/code> or &lt;code>ioreg&lt;/code>, I opted to use &lt;a href="https://blog.golang.org/c-go-cgo">Cgo&lt;/a> and retrieve the serial number via the &lt;code>IOKit&lt;/code> framework. Here&amp;rsquo;s how that looks:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">package&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// #cgo LDFLAGS: -framework CoreFoundation -framework IOKit
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// #include &amp;lt;CoreFoundation/CoreFoundation.h&amp;gt;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// #include &amp;lt;IOKit/IOKitLib.h&amp;gt;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">//
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// const char *
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// getSerialNumber()
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// {
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// CFMutableDictionaryRef matching = IOServiceMatching(&amp;#34;IOPlatformExpertDevice&amp;#34;);
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// io_service_t service = IOServiceGetMatchingService(kIOMasterPortDefault, matching);
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// CFStringRef serialNumber = IORegistryEntryCreateCFProperty(service,
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// CFSTR(&amp;#34;IOPlatformSerialNumber&amp;#34;), kCFAllocatorDefault, 0);
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// const char *str = CFStringGetCStringPtr(serialNumber, kCFStringEncodingUTF8);
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// IOObjectRelease(service);
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">//
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// return str;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// }
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#e6db74">&amp;#34;C&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#e6db74">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">serialNumber&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">C&lt;/span>.&lt;span style="color:#a6e22e">GoString&lt;/span>(&lt;span style="color:#a6e22e">C&lt;/span>.&lt;span style="color:#a6e22e">getSerialNumber&lt;/span>())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">fmt&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#a6e22e">serialNumber&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Make sure that the &lt;code>import C&lt;/code> line goes directly below the C code, otherwise it will fail with something like the following:&lt;/p></description></item></channel></rss>
