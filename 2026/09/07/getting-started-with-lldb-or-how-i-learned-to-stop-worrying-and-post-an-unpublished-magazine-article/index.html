@@ -1,0 +1,485 @@
+<!doctype html><html lang=en-US>
+<head>
+<link rel=preload href=/lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=/lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=/lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<meta charset=utf-8>
+<meta http-equiv=X-UA-Compatible content="IE=edge">
+<title> Getting Started with LLDB or: How I Learned to Stop Worrying and Post an Unpublished Magazine Article | Everything is Gray</title>
+<link rel=canonical href=https://everythingisgray.com/2026/09/07/getting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article/>
+<meta name=description content="A place to put stuff.">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="all,follow">
+<meta name=googlebot content="index,follow,snippet,archive">
+<meta property="og:url" content="https://everythingisgray.com/2026/09/07/getting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article/">
+<meta property="og:site_name" content="Everything is Gray">
+<meta property="og:title" content="Getting Started with LLDB or: How I Learned to Stop Worrying and Post an Unpublished Magazine Article">
+<meta property="og:description" content="An article I wrote for MacTech magazine that was never published.">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="article:section" content="post">
+<meta property="article:published_time" content="2026-09-07T21:33:52-04:00">
+<meta property="article:modified_time" content="2026-11-03T14:49:56-05:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Getting Started with LLDB or: How I Learned to Stop Worrying and Post an Unpublished Magazine Article">
+<meta name=twitter:description content="An article I wrote for MacTech magazine that was never published.">
+<link rel=stylesheet href=/css/style.min.90f726fd6ebd9b829ed501a3589407d12dbaf33eaba1eaa939d94ddba200ae72.css integrity="sha256-kPcm/W69m4Ke1QGjWJQH0S268z6roeqpOdlN26IArnI=" crossorigin=anonymous>
+<link rel=stylesheet href=https://everythingisgray.com/css/custom.css>
+<!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script>
+<script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]--><link rel=apple-touch-icon sizes=180x180 href=https://everythingisgray.com/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=https://everythingisgray.com/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=https://everythingisgray.com/favicon-16x16.png>
+<link rel=manifest href=https://everythingisgray.com/site.webmanifest>
+<link rel=mask-icon href=https://everythingisgray.com/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#da532c">
+<meta name=theme-color content="#ffffff">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7FEYPKH74D"></script>
+<script>var doNotTrack=!1,dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-7FEYPKH74D")}</script>
+</head>
+<body class="max-width mx-auto px3 ltr">
+<div class="content index py4">
+<div id=header-post>
+<a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
+<a id=menu-icon-tablet href=#><i class="fas fa-bars fa-lg"></i></a>
+<a id=top-icon-tablet href=# onclick='$("html, body").animate({scrollTop:0},"fast")' style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+<span id=menu>
+<span id=nav>
+<ul>
+<li><a href=/>Home</a></li>
+<li><a href=/about/>About</a></li>
+<li><a href=/post/>Blog</a></li>
+<li><a href=/projects/>Projects</a></li>
+<li><a href=/research/>Research</a></li>
+<li><a href=/talks/>Talks</a></li>
+</ul>
+</span>
+<br>
+<span id=actions>
+<ul>
+<li>
+<a class=icon href=https://everythingisgray.com/2023/05/24/custom-tidbyt-apps/ aria-label=Previous>
+<i class="fas fa-chevron-left" aria-hidden=true onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i>
+</a>
+</li>
+<li>
+<a class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page">
+<i class="fas fa-chevron-up" aria-hidden=true onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i>
+</a>
+</li>
+<li>
+<a class=icon href=# aria-label=Share>
+<i class="fas fa-share-alt" aria-hidden=true onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i>
+</a>
+</li>
+</ul>
+<span id=i-prev class=info style=display:none>Previous post</span>
+<span id=i-next class=info style=display:none>Next post</span>
+<span id=i-top class=info style=display:none>Back to top</span>
+<span id=i-share class=info style=display:none>Share post</span>
+</span>
+<br>
+<div id=share style=display:none>
+<ul>
+<li>
+<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f" aria-label=Facebook>
+<i class="fab fa-facebook" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://twitter.com/share?url=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f&text=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article" aria-label=Twitter>
+<i class="fab fa-twitter" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f&title=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article" aria-label=Linkedin>
+<i class="fab fa-linkedin" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f&is_video=false&description=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article" aria-label=Pinterest>
+<i class="fab fa-pinterest" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="mailto:?subject=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article&body=Check out this article: https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f" aria-label=Email>
+<i class="fas fa-envelope" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f&title=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article" aria-label=Pocket>
+<i class="fab fa-get-pocket" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f&title=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article" aria-label=reddit>
+<i class="fab fa-reddit" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f&name=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article&description=An%20article%20I%20wrote%20for%20MacTech%20magazine%20that%20was%20never%20published." aria-label=Tumblr>
+<i class="fab fa-tumblr" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f&t=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article" aria-label="Hacker News">
+<i class="fab fa-hacker-news" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+<div id=toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#whats-a-debugger>What&rsquo;s a Debugger?</a></li>
+<li><a href=#why-you-need-a-debugger>Why You Need a Debugger</a></li>
+<li><a href=#lldb-vs-gdb>LLDB vs. GDB</a></li>
+<li><a href=#getting-started-with-lldb-1>Getting Started With LLDB</a>
+<ul>
+<li><a href=#the-setup>The Setup</a></li>
+<li><a href=#debugging-your-own-programs>Debugging Your Own Programs</a>
+<ul>
+<li><a href=#setting-breakpoints-in-xcode>Setting Breakpoints in Xcode</a></li>
+<li><a href=#setting-conditional-breakpoints-in-xcode>Setting Conditional Breakpoints in Xcode</a></li>
+<li><a href=#using-the-debugger-in-place-of-print-statements>Using the Debugger In-Place of Print Statements</a></li>
+<li><a href=#changing-program-state-with-lldb>Changing Program State with LLDB</a></li>
+<li><a href=#using-lldb-as-a-standalone-debugger-from-the-cli>Using LLDB as a Standalone Debugger From the CLI</a></li>
+<li><a href=#setting-breakpoints-in-the-lldb-standalone-debugger>Setting Breakpoints in the LLDB Standalone Debugger</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=#conclusion>Conclusion</a></li>
+</ul>
+</nav>
+</div>
+</span>
+</div>
+<article class=post itemscope itemtype=http://schema.org/BlogPosting>
+<header>
+<h1 class=posttitle itemprop="name headline">
+Getting Started with LLDB or: How I Learned to Stop Worrying and Post an Unpublished Magazine Article
+</h1>
+<hr>
+<div class=meta>
+<div class=postdate>Posted by </div><span class=author itemprop=author itemscope itemtype=http://schema.org/Person>
+<span itemprop=name>
+<a href=/about/>James Barclay</a>
+</span>
+</span>
+<div class=postdate>
+on
+<time datetime=2026-09-07T21:33:52-04:00 itemprop=datePublished>2026-09-07</time>
+(Updated: <time datetime=2026-11-03T14:49:56-05:00 itemprop=dateModified>2026-11-03</time>)
+</div>
+<div class=article-read-time>
+<i class="far fa-clock"></i>
+13 minute read
+</div>
+</div>
+</header>
+<hr>
+<div class=content itemprop=articleBody>
+<p>Once upon a time, there was a developer and IT-focused Mac magazine known as <a href=https://en.wikipedia.org/wiki/MacTech>MacTech</a>. I was first introduced to it while working for an Apple-focused professional services company called Macprofessionals back in 2010. I remember the first time I picked one up; I was immediately struck by how much it felt like it was made <em>just for me</em>, the kind of super-niche thing that you don&rsquo;t expect to ever see in such an &ldquo;official&rdquo; form. Needless to say, I devoured many issues. Years later, I ended up working with the Executive Editor of MacTech at <a href=https://duo.com/blog/category/duo-labs>Duo Labs</a>, (the research arm of Duo Security, now part of Cisco). After a couple years of working together, Ed asked if I&rsquo;d have any interest in writing an article for a reboot of the magazine, since we were both Mac nerds. I was honored and immediately jumped at the opportunity. Unfortunately, though, the magazine was never rebooted, so the article I wrote has been sitting dormant on my hard drive for some years. But, while on a run the other day, I was thinking about wanting to write more on my blog, and I remembered this. So, here it is, in all its messy, human glory.</p>
+<hr>
+<h1 id=getting-started-with-lldb>Getting Started with LLDB</h1>
+<p>The Low Level Debugger, or <a href=https://lldb.llvm.org>LLDB</a>, is a C, C++, and Objective-C debugger that&rsquo;s part of the larger Low Level Virtual Machine (<a href=http://llvm.org/>LLVM</a>) compiler infrastructure. It, (along with most of LLVM), was originally developed by <a href=http://www.nondot.org/sabre/>Chris Lattner</a> as part of his <a href=http://llvm.org/pubs/2002-12-LattnerMSThesis.html>graduate</a> <a href=http://llvm.org/pubs/2005-05-04-LattnerPHDThesis.html>work</a> at <a href=https://illinois.edu>The University of Illinois at Urbana-Champaign</a>, and was later adopted by Apple to replace GCC and <a href=https://www.gnu.org/s/gdb/>GDB</a> as their compiler and debugging infrastructure, respectively. In this article, I&rsquo;ll explain what debuggers are, what they&rsquo;re good for, and how LLDB differs from GDB and other debuggers. Then, I&rsquo;ll show you how to get set up with LLDB on your own Mac. Finally, I&rsquo;ll demonstrate how to debug your own programs with LLDB on macOS.</p>
+<h2 id=whats-a-debugger>What&rsquo;s a Debugger?</h2>
+<p>In its simplest form, a debugger is a program designed to debug other programs. Many Integrated Development Environments (IDEs) include the ability to debug programs as you develop them. These are sometimes referred to as source-level debuggers, as they&rsquo;re able to halt if an exception or fault is encountered, and show the source code line where it occurred. Low-level debuggers, on the other hand, show where these faults occur in the program&rsquo;s disassembly. LLDB is both a source-level and low-level debugger. When the source code is available, for example when debugging your own programs in Xcode, LLDB will show in the original source code where the exception occurred, but it also supports debugging other programs for which no source-code is available, for which it displays the disassembly. In addition to LLDB, some other popular debuggers are listed below:</p>
+<ul>
+<li><a href=https://www.eclipse.org/community/eclipse_newsletter/2017/june/article1.php>Eclipse Debugger</a></li>
+<li><a href=https://www.gnu.org/s/gdb/>GDB</a></li>
+<li><a href="https://docs.microsoft.com/en-us/visualstudio/debugger/debugger-feature-tour?view=vs-2019">Visual Studio Debugger</a></li>
+<li><a href=https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools>Windows Debugger (WinDbg)</a></li>
+</ul>
+<p>JavaScript debuggers as used in web browsers are also very common, like those used in <a href=https://developers.google.com/web/tools/chrome-devtools/>Chrome</a>, <a href=https://developer.mozilla.org/en-US/docs/Tools/Debugger>Firefox</a>, and <a href=https://webkit.org/debugging-webkit/>WebKit</a>.</p>
+<h2 id=why-you-need-a-debugger>Why You Need a Debugger</h2>
+<p>So, why do you need a debugger, anyway? After all, isn&rsquo;t the easiest way to figure out what a &ldquo;thing&rdquo; is is by simply <code>print</code>ing it out? Perhaps, but this has some drawbacks. First and foremost, littering your code with <code>printf</code> statements can quickly lead to less readable and longer code. Secondly, it&rsquo;s easy to forget to remove <code>printf</code> statements from your code before publishing it. Many programmers have been guilty of accidently pushing an embarassing line of code looking something like the following:</p>
+<pre><code>printf(&quot;HERE IS THE VALUE: %s\n&quot;, variable);`
+</code></pre>
+<p>Also, what if the value you&rsquo;re printing contains sensitive information? Recently, companies like <a href=https://www.bleepingcomputer.com/news/security/twitter-admits-recording-plaintext-passwords-in-internal-logs-just-like-github/>Twitter</a> and <a href=https://www.bleepingcomputer.com/news/security/github-accidentally-recorded-some-plaintext-passwords-in-its-internal-logs/>GitHub</a> have had to release product security advisories about printing sensitive information in internal logs, such as passwords. It stands to reason that if a logging system is capturing <code>stdout</code> and/or <code>stderr</code> from a program that it&rsquo;s possible that the output from print statements can end up in places where it shouldn&rsquo;t be. What if we could make it harder to make this type of mistake in the first place, though? Fortunately, we can: by using a debugger. And, if you&rsquo;re using macOS, (which, presumably you are if you&rsquo;re reading this!), then <code>lldb</code> is a fine choice.</p>
+<h2 id=lldb-vs-gdb>LLDB vs. GDB</h2>
+<p>LLDB and GDB are both excellent debuggers, but they do have some differences. Longtime Mac developers will remember when GDB, GCC, and the rest of the GNU compiler infrastructure were included with the Developer Tools on Mac OS X, but Apple has since migrated to the LLVM compiler infrastructure, which it largely maintains. Also, many C programmers and *nix users may already be familiar with GDB, but making the switch to LLDB, (or at least becoming familiar with it), isn&rsquo;t that hard, especially considering that the LLDB developers maintain an <a href=https://lldb.llvm.org/use/map.html>LLDB to GDB command map</a>.</p>
+<h2 id=getting-started-with-lldb-1>Getting Started With LLDB</h2>
+<h3 id=the-setup>The Setup</h3>
+<p>The easiest way to get started with LLDB is to install <a href=https://developer.apple.com/xcode/>Xcode</a>. Alternatively, if you prefer not to install the entire Xcode IDE, you can just install the <a href="https://developer.apple.com/download/more/?=command%20line%20tools">Xcode Command-Line Tools</a>. Once you&rsquo;ve done this, you should be able to launch your Terminal emulator of choice, (e.g., <em>Terminal.app</em>), and type <code>lldb</code> to start the LLDB interactive debugger.</p>
+<h3 id=debugging-your-own-programs>Debugging Your Own Programs</h3>
+<p>Arguably, the easiest way to get started with LLDB is just by <em>using</em> Xcode. By default, if your program faults, Xcode will switch to the Debug navigator and start a Debug Session with LLDB, showing you in your code where the problem lies. Now, if you&rsquo;re anything like me, then you may find this very daunting at first. Not to worry though, we&rsquo;ll walk through a typical example of a fault being encountered and then work our way through how to figure out what went wrong.</p>
+<p>For instance, consider the following contrived example. Here we have a new Xcode project where I&rsquo;ve intentionally introduced a bug that will cause the application to fault:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-objectivec data-lang=objectivec><span style=display:flex><span><span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//  ViewController.m
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//  LLDB Test
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//  Created by James Barclay on 5/19/19.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#import &#34;ViewController.h&#34;
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>@implementation</span> <span style=color:#a6e22e>ViewController</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>- (<span style=color:#66d9ef>void</span>)<span style=color:#a6e22e>viewDidLoad</span> {
+</span></span><span style=display:flex><span>    [super viewDidLoad];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> <span style=color:#f92672>*</span>x <span style=color:#f92672>=</span> NULL;
+</span></span><span style=display:flex><span>    <span style=color:#f92672>*</span>x <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;  <span style=color:#75715e>// This will crash.
+</span></span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>@end</span>
+</span></span></code></pre></div><p>If you build and run this project in Xcode, the application will fault and start an interactive debugging session within Xcode.</p>
+<p><img src=/images/2026-09-07-getting-started-with-lldb/xcode_debugging_session.png alt="Xcode Debugging Session"></p>
+<p>When the program crashes, Xcode will switch to the Debug navigator and you&rsquo;ll be able to inspect processes, threads, and variables, as well as enter commands in the debug console, which is located at the bottom-right of the Debug area by default. Xcode will also unwind the stack and present it to you in the process view pane on the left.</p>
+<p>Now that the debugging session is active in Xcode, we can use the tools made available to us to try to figure out the source of our bug. We can, for instance, type commands into the debug console, such as <code>p x</code> to print out the result of evaluating the <code>x</code> variable in the current frame. We can also step through the the program&rsquo;s flow with the following commands:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>s   // thread step-in (Do a source-level step in the current thread)
+</span></span><span style=display:flex><span>si  // thread step-inst (Do an instruction-level step in the current thread)
+</span></span><span style=display:flex><span>n   // thread step-over (Do a source-level step over in the current thread)
+</span></span><span style=display:flex><span>ni  // thread step-over-inst (Do an instruction-level step in the current thread)
+</span></span><span style=display:flex><span>f   // thread step-out (Step out of the current frame)
+</span></span></code></pre></div><p>The primary thing to remember when stepping through a program&rsquo;s flow with the above commands is that <code>s</code> and <code>si</code> will step into subroutines, while <code>n</code> and <code>ni</code> will &ldquo;step over&rdquo; (i.e., skip) them. Thus, if you suspect your problem lies within a subroutine, you may want to use <code>s</code> or <code>si</code>.</p>
+<p>To continue execution of the program&rsquo;s flow, type <code>continue</code>, (or just <code>c</code> for short).</p>
+<p>Some of the other most commonly used LLDB commands are <code>p</code> and <code>po</code>, which allow you to examine values of different types of variables. Combining these with the process control commands mentioned above allow you to step through your program line-by-line and evaluate the state of variables over time, which is invaluable in determining the cause of bugs, (or just learning more about how your program works!). Plus, this way you don&rsquo;t need to litter your source code with unnecessary <code>printf</code> or <code>NSLog()</code> statements! The biggest difference to remember between <code>p</code> and <code>po</code> is that <code>po</code> (print object) is meant to print the value of objects. It does this by sending the <code>debugDescription</code> method to the object if it responds to that selector, and the <code>description</code> message if not, (then displays the output). In the case of <code>CoreFoundation</code> types, it calls the <code>CFShow()</code> function and returns the output. <code>p</code> is faster and less complex than <code>po</code>, so unless the variable you&rsquo;re inspecting is an object, (e.g., inherits from <code>NSObject</code>), or <code>CoreFoundation</code> type, use <code>p</code>.</p>
+<p>In this case, the bug we&rsquo;ve intentionally introduced is a <code>NULL</code> pointer dereference, which Xcode makes rather clear by pointing to the offending line with the error message <code>Thread 1: EXC_BAD_ACCESS (code=1, address=0x0)</code>.</p>
+<p><img src=/images/2026-09-07-getting-started-with-lldb/exc_bad_access.png alt=EXC_BAD_ACCESS></p>
+<h4 id=setting-breakpoints-in-xcode>Setting Breakpoints in Xcode</h4>
+<p>What if you don&rsquo;t want your program to stop just when it crashes or an exception is raised? What if instead, you could <em>choose</em> when your program stops, and then have full control over how it executes? Fortunately, you can do just that, and the even better news is that it&rsquo;s pretty darn easy.</p>
+<p>A breakpoint is an intentional stopping point in a program. Breakpoints are extremely useful for debugging purposes, as you can set them on specific source lines, function calls, or selectors. In Xcode, you can also set a breakpoint simply by clicking next to the source line where you want the breakpoint to occur, as shown below:</p>
+<p><img src=/images/2026-09-07-getting-started-with-lldb/xcode_breakpoint_set.png alt="Setting a Breakpoint in Xcode"></p>
+<p>The above breakpoint will cause the program to pause on line <code>15</code>, just as the <code>x</code> variable is being allocated and initialized to <code>NULL</code>.</p>
+<p>If we <code>s</code>tep through the program line-by-line, we&rsquo;ll eventually get to the offending line that causes the program to crash.</p>
+<h4 id=setting-conditional-breakpoints-in-xcode>Setting Conditional Breakpoints in Xcode</h4>
+<p>Sometimes you only want to pause program execution under certain conditions. For example, let&rsquo;s say you want a breakpoint to fire only if the value of an <code>int</code> variable is <code>42</code>. Consider the following example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-objectivec data-lang=objectivec><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>50</span>; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>    NSLog(<span style=color:#e6db74>@&#34;i is: %d&#34;</span>, i);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>To pause the program when the value of <code>i</code> is equal to <code>42</code>, set a breakpoint at the line containing the <code>NSLog()</code> statement and control-click on the highlighted breakpoint in Xcode. From there, select &ldquo;Edit Breakpoint&rdquo; and enter the following expression in the &ldquo;Condition&rdquo; text field.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>i == 42
+</span></span></code></pre></div><p><img src=/images/2026-09-07-getting-started-with-lldb/xcode_conditional_breakpoint.png alt="Conditional Breakpoints in Xcode"></p>
+<p>Here&rsquo;s another example showing an Objecive-C expression that breaks when an <code>NSString</code> object that&rsquo;s accessed from an <code>NSArray</code> object equals the string &ldquo;three.&rdquo;</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-objectivec data-lang=objectivec><span style=display:flex><span>NSArray <span style=color:#f92672>*</span>arr <span style=color:#f92672>=</span> <span style=color:#ae81ff>@[</span><span style=color:#e6db74>@&#34;one&#34;</span>, <span style=color:#e6db74>@&#34;two&#34;</span>, <span style=color:#e6db74>@&#34;three&#34;</span><span style=color:#ae81ff>]</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (NSString <span style=color:#f92672>*</span>str <span style=color:#66d9ef>in</span> arr) {
+</span></span><span style=display:flex><span>    NSLog(<span style=color:#e6db74>@&#34;str is: %@&#34;</span>, str);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-objectivec data-lang=objectivec><span style=display:flex><span>(<span style=color:#66d9ef>BOOL</span>)[[NSString stringWithString:str] isEqualToString:<span style=color:#e6db74>@&#34;three&#34;</span>]
+</span></span></code></pre></div><p>Each of these are contrived examples, but the possibilities are nearly limitless! Imagine conditionally setting a breakpoint only if a variable is <code>nil</code> when it&rsquo;s not expected to be, or only when you&rsquo;re in a certain physical location, (e.g., by leveraging <code>CoreLocation</code>).</p>
+<h4 id=using-the-debugger-in-place-of-print-statements>Using the Debugger In-Place of Print Statements</h4>
+<p>Remember what I said about using a debugger to print values instead of littering your code with <code>printf</code> statements? Xcode also makes this rather easy. Simply click the source line where you&rsquo;d normally insert your <code>printf</code>, <code>NSLog()</code> or similar statement, and click &ldquo;Edit Breakpoint&mldr;&rdquo; Then, click the &ldquo;Add Action&rdquo; button, and choose &ldquo;Debugger Command&rdquo; from the Action drop-down. Then, simply type <code>po &lt;name_of_variable></code> in the text field. If you also check the box to &ldquo;Automatically continue after evaluating actions,&rdquo; your program will continue running without pausing. Now you can see the value the variable without modifying your source code! Additionally, any valid LLDB command can be entered there, too, so you&rsquo;re not limited to just <code>p</code> and <code>po</code>.</p>
+<h4 id=changing-program-state-with-lldb>Changing Program State with LLDB</h4>
+<p>It&rsquo;s also possible to change program state from LLDB. Let&rsquo;s say the value of an <code>NSInteger</code> variable is <code>3</code>, but you want to change it to <code>42</code>. Consider the following example.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-objectivec data-lang=objectivec><span style=display:flex><span>NSInteger i <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>;
+</span></span><span style=display:flex><span>NSLog(<span style=color:#e6db74>@&#34;i is: %ld&#34;</span>, (<span style=color:#66d9ef>long</span>)i);
+</span></span><span style=display:flex><span><span style=color:#75715e>// Set breakpoint here.
+</span></span></span><span style=display:flex><span>NSLog(<span style=color:#e6db74>@&#34;i is: %ld&#34;</span>, (<span style=color:#66d9ef>long</span>)i);
+</span></span></code></pre></div><p>To change the value of the <code>NSInteger</code> variable to <code>42</code>, set a breakpoint on the line between the two <code>NSLog()</code> statements. Then, in the debug console type the following, then hit return:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>expr -- i = 42
+</span></span></code></pre></div><p>Doing the above will modify the <code>NSInteger</code> variable named <code>i</code> to contain the value <code>42</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>2019-05-21 19:31:38.536406-0400 LLDB Test[46709:3778735] i is: 3
+</span></span><span style=display:flex><span>(lldb) expr -- i = 42
+</span></span><span style=display:flex><span>(NSInteger) $0 = 42
+</span></span><span style=display:flex><span>(lldb) c
+</span></span><span style=display:flex><span>Process 46709 resuming
+</span></span></code></pre></div><h4 id=using-lldb-as-a-standalone-debugger-from-the-cli>Using LLDB as a Standalone Debugger From the CLI</h4>
+<p>If you&rsquo;d rather not use Xcode, or if the program you&rsquo;re writing doesn&rsquo;t lend itself to using a fully featured IDE, then you can also use <code>lldb</code> from the command-line. To do so, launch your favorite Terminal emulator and type <code>lldb</code>, then hit return. This will start an LLDB interactive shell.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>$ lldb
+</span></span><span style=display:flex><span><span style=color:#f92672>(</span>lldb<span style=color:#f92672>)</span>
+</span></span></code></pre></div><p>To see a list of common commands, type <code>help</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>(lldb) help
+</span></span><span style=display:flex><span>Debugger commands:
+</span></span><span style=display:flex><span>  apropos           -- List debugger commands related to a word or subject.
+</span></span><span style=display:flex><span>  breakpoint        -- Commands for operating on breakpoints (see &#39;help b&#39; for shorthand.)
+</span></span><span style=display:flex><span>  bugreport         -- Commands for creating domain-specific bug reports.
+</span></span><span style=display:flex><span>  command           -- Commands for managing custom LLDB commands.
+</span></span><span style=display:flex><span>  disassemble       -- Disassemble specified instructions in the current target.  Defaults to the
+</span></span><span style=display:flex><span>                       current function for the current thread and stack frame.
+</span></span><span style=display:flex><span>  expression        -- Evaluate an expression on the current thread.  Displays any returned value with
+</span></span><span style=display:flex><span>                       LLDB&#39;s default formatting.
+</span></span><span style=display:flex><span>  frame             -- Commands for selecting and examing the current thread&#39;s stack frames.
+</span></span><span style=display:flex><span>  gdb-remote        -- Connect to a process via remote GDB server.  If no host is specifed, localhost
+</span></span><span style=display:flex><span>                       is assumed.
+</span></span><span style=display:flex><span>  gui               -- Switch into the curses based GUI mode.
+</span></span><span style=display:flex><span>  &lt;snip&gt;
+</span></span></code></pre></div><p>Consider the following simple C program, which prints the numbers 1-5 separated by newlines. Let&rsquo;s explore debugging this simple program from the CLI with LLDB.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>argv[])
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>; i <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>6</span>; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, i);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Save this file as <code>one_through_five.c</code>, then compile it with <code>make</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>make one_through_five
+</span></span></code></pre></div><p>To start the program with LLDB, type <code>lldb one_through_five</code>, then hit return. This will start an interactive LLDB prompt and automatically attach to the <code>one_through_five</code> program. You can also start LLDB first, then attach to your program and run it.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>$ lldb
+</span></span><span style=display:flex><span>(lldb) file one_through_five
+</span></span><span style=display:flex><span>Current executable set to &#39;one_through_five&#39; (x86_64).
+</span></span><span style=display:flex><span>(lldb) run
+</span></span></code></pre></div><h4 id=setting-breakpoints-in-the-lldb-standalone-debugger>Setting Breakpoints in the LLDB Standalone Debugger</h4>
+<p>Just as you can set breakpoints in your code from Xcode, you can do so from the LLDB standalone debugger. Breakpoints can be set by <code>name</code>, <code>selector</code>, <code>regex</code>, line number, and more. For example, to set a breakpoint at the <code>main</code> function, type the following:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>(lldb) breakpoint set --name main
+</span></span><span style=display:flex><span>Breakpoint 1: where = one_through_five`main, address = 0x0000000100000f40
+</span></span></code></pre></div><p>The output shows that a breakpoint has been set on the main function at address <code>0x0000000100000f40</code>. We can run the program with <code>run</code>, (or <code>r</code> for short), then step through its execution, (e.g., with <code>s[tep]</code>, <code>n[ext]</code>, <code>c[ontinue]</code>, etc.).</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>(lldb) r
+</span></span><span style=display:flex><span>Process 65906 launched: &#39;/Users/jbarclay/src/lldb_cli_example/one_through_five&#39; (x86_64)
+</span></span><span style=display:flex><span>Process 65906 stopped
+</span></span><span style=display:flex><span>* thread #1, queue = &#39;com.apple.main-thread&#39;, stop reason = breakpoint 1.1
+</span></span><span style=display:flex><span>    frame #0: 0x0000000100000f40 one_through_five`main
+</span></span><span style=display:flex><span>one_through_five`main:
+</span></span><span style=display:flex><span>-&gt;  0x100000f40 &lt;+0&gt;: pushq  %rbp
+</span></span><span style=display:flex><span>    0x100000f41 &lt;+1&gt;: movq   %rsp, %rbp
+</span></span><span style=display:flex><span>    0x100000f44 &lt;+4&gt;: subq   $0x20, %rsp
+</span></span><span style=display:flex><span>    0x100000f48 &lt;+8&gt;: movl   $0x0, -0x4(%rbp)
+</span></span><span style=display:flex><span>Target 0: (one_through_five) stopped.
+</span></span><span style=display:flex><span>(lldb) s
+</span></span><span style=display:flex><span>Process 66462 stopped
+</span></span><span style=display:flex><span>* thread #1, queue = &#39;com.apple.main-thread&#39;, stop reason = instruction step into
+</span></span><span style=display:flex><span>    frame #0: 0x0000000100000f41 one_through_five`main + 1
+</span></span><span style=display:flex><span>one_through_five`main:
+</span></span><span style=display:flex><span>-&gt;  0x100000f41 &lt;+1&gt;:  movq   %rsp, %rbp
+</span></span><span style=display:flex><span>    0x100000f44 &lt;+4&gt;:  subq   $0x20, %rsp
+</span></span><span style=display:flex><span>    0x100000f48 &lt;+8&gt;:  movl   $0x0, -0x4(%rbp)
+</span></span><span style=display:flex><span>    0x100000f4f &lt;+15&gt;: movl   %edi, -0x8(%rbp)
+</span></span><span style=display:flex><span>Target 0: (one_through_five) stopped.
+</span></span></code></pre></div><p>You may also notice that LLDB displays the program&rsquo;s disassembly, rather than the source code. This is because, by default, when you compile a program with <code>clang</code> it doesn&rsquo;t export debugging symbols. To ensure <code>clang</code> will export debugging symbols with your program, use the <code>-g</code> flag to <code>Generate debug information</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>clang -g -O0 one_through_five.c -o one_through_five
+</span></span></code></pre></div><p>Compiling <code>one_through_five.c</code> as listed above will export debugging symbols, and create a new directory alongside the <code>one_through_five</code> executable named <code>one_through_five.dSYM</code>. Now, when you debug the program with LLDB you&rsquo;ll see the full source code, rather than the disassembly. This also allows you to set breakpoints for specific lines in the file, which is not possible without the symbol table.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>(lldb) breakpoint set --file one_through_five.c --line 6
+</span></span><span style=display:flex><span>Breakpoint 2: where = one_through_five`main + 39 at one_through_five.c:6:24, address = 0x0000000100000f67
+</span></span><span style=display:flex><span>(lldb) r
+</span></span><span style=display:flex><span>Process 68198 launched: &#39;/Users/jbarclay/src/lldb_cli_example/one_through_five&#39; (x86_64)
+</span></span><span style=display:flex><span>Process 68198 stopped
+</span></span><span style=display:flex><span>* thread #1, queue = &#39;com.apple.main-thread&#39;, stop reason = breakpoint 2.1
+</span></span><span style=display:flex><span>    frame #0: 0x0000000100000f67 one_through_five`main(argc=1, argv=0x00007ffeefbff300) at one_through_five.c:6:24
+</span></span><span style=display:flex><span>   3   	int main(int argc, char *argv[])
+</span></span><span style=display:flex><span>   4   	{
+</span></span><span style=display:flex><span>   5   	    for (int i = 1; i &lt; 6; i++) {
+</span></span><span style=display:flex><span>-&gt; 6   	        printf(&#34;%d\n&#34;, i);
+</span></span><span style=display:flex><span>   7   	    }
+</span></span><span style=display:flex><span>   8
+</span></span><span style=display:flex><span>   9   	    return 0;
+</span></span><span style=display:flex><span>Target 0: (one_through_five) stopped.
+</span></span></code></pre></div><h2 id=conclusion>Conclusion</h2>
+<p>Hopefully, if you&rsquo;ve read this far, you now have a better understanding of what LLDB is and how to use it to debug your own software. LLDB is an extremely powerful tool, and the possibilities for what you can do with it are nearly endless! Stay tuned for next time, as I&rsquo;ll be covering more advanced LLDB topics.</p>
+</div>
+</article>
+<div id=footer-post-container>
+<div id=footer-post>
+<div id=nav-footer style=display:none>
+<ul>
+<li><a href=/>Home</a></li>
+<li><a href=/about/>About</a></li>
+<li><a href=/post/>Blog</a></li>
+<li><a href=/projects/>Projects</a></li>
+<li><a href=/research/>Research</a></li>
+<li><a href=/talks/>Talks</a></li>
+</ul>
+</div>
+<div id=toc-footer style=display:none>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#whats-a-debugger>What&rsquo;s a Debugger?</a></li>
+<li><a href=#why-you-need-a-debugger>Why You Need a Debugger</a></li>
+<li><a href=#lldb-vs-gdb>LLDB vs. GDB</a></li>
+<li><a href=#getting-started-with-lldb-1>Getting Started With LLDB</a>
+<ul>
+<li><a href=#the-setup>The Setup</a></li>
+<li><a href=#debugging-your-own-programs>Debugging Your Own Programs</a>
+<ul>
+<li><a href=#setting-breakpoints-in-xcode>Setting Breakpoints in Xcode</a></li>
+<li><a href=#setting-conditional-breakpoints-in-xcode>Setting Conditional Breakpoints in Xcode</a></li>
+<li><a href=#using-the-debugger-in-place-of-print-statements>Using the Debugger In-Place of Print Statements</a></li>
+<li><a href=#changing-program-state-with-lldb>Changing Program State with LLDB</a></li>
+<li><a href=#using-lldb-as-a-standalone-debugger-from-the-cli>Using LLDB as a Standalone Debugger From the CLI</a></li>
+<li><a href=#setting-breakpoints-in-the-lldb-standalone-debugger>Setting Breakpoints in the LLDB Standalone Debugger</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=#conclusion>Conclusion</a></li>
+</ul>
+</nav>
+</div>
+<div id=share-footer style=display:none>
+<ul>
+<li>
+<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f" aria-label=Facebook>
+<i class="fab fa-facebook fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://twitter.com/share?url=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f&text=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article" aria-label=Twitter>
+<i class="fab fa-twitter fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f&title=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article" aria-label=Linkedin>
+<i class="fab fa-linkedin fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f&is_video=false&description=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article" aria-label=Pinterest>
+<i class="fab fa-pinterest fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="mailto:?subject=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article&body=Check out this article: https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f" aria-label=Email>
+<i class="fas fa-envelope fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f&title=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article" aria-label=Pocket>
+<i class="fab fa-get-pocket fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f&title=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article" aria-label=reddit>
+<i class="fab fa-reddit fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f&name=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article&description=An%20article%20I%20wrote%20for%20MacTech%20magazine%20that%20was%20never%20published." aria-label=Tumblr>
+<i class="fab fa-tumblr fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2feverythingisgray.com%2f2026%2f09%2f07%2fgetting-started-with-lldb-or-how-i-learned-to-stop-worrying-and-post-an-unpublished-magazine-article%2f&t=Getting%20Started%20with%20LLDB%20or%3a%20How%20I%20Learned%20to%20Stop%20Worrying%20and%20Post%20an%20Unpublished%20Magazine%20Article" aria-label="Hacker News">
+<i class="fab fa-hacker-news fa-lg" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+<div id=actions-footer>
+<a id=menu-toggle class=icon href=# onclick='return $("#nav-footer").toggle(),!1' aria-label=Menu>
+<i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
+<a id=toc-toggle class=icon href=# onclick='return $("#toc-footer").toggle(),!1' aria-label=TOC>
+<i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
+<a id=share-toggle class=icon href=# onclick='return $("#share-footer").toggle(),!1' aria-label=Share>
+<i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
+<a id=top style=display:none class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page">
+<i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a>
+</div>
+</div>
+</div>
+<footer id=footer>
+<div class=footer-left>
+Copyright &copy; 2026 James Barclay
+</div>
+<div class=footer-right>
+<nav>
+<ul>
+<li><a href=/>Home</a></li>
+<li><a href=/about/>About</a></li>
+<li><a href=/post/>Blog</a></li>
+<li><a href=/projects/>Projects</a></li>
+<li><a href=/research/>Research</a></li>
+<li><a href=/talks/>Talks</a></li>
+</ul>
+</nav>
+</div>
+</footer>
+</div>
+<link rel=stylesheet href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+</body>
+</html>
